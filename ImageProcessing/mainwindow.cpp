@@ -1,16 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "myvideocapture.h"
+#include "staticframedifference.h"
+#include "gaussianmodelmixutre.h"
+#include "adaptivebackgroundlearning.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    mOpenCV_videoCapture = new myvideocapture(this);
-    connect(mOpenCV_videoCapture, &myvideocapture::newPixmapCaptured, this, [&]()
-    {
-        ui->opencvFrame->setPixmap(mOpenCV_videoCapture->pixmap().scaled(500,500));
-    });
 }
 
 MainWindow::~MainWindow()
@@ -22,5 +20,22 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    mOpenCV_videoCapture->start(QThread::HighestPriority);
+    staticframedifference sfd;
+    sfd.start();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    gaussianmodelmixutre gmm;
+    gmm.start();
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    adaptivebackgroundlearning abl;
+    abl.start();
+}
+void MainWindow::on_actionExit_triggered()
+{
+    QApplication::quit();
 }

@@ -16,13 +16,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    adaptivebackgroundlearning.cpp \
+    fuzzychoquetintegral.cpp \
+    fuzzysugenointegral.cpp \
+    gaussianmodelmixutre.cpp \
     main.cpp \
     mainwindow.cpp \
-    myvideocapture.cpp
+    myvideocapture.cpp \
+    staticframedifference.cpp
 
 HEADERS += \
+    adaptivebackgroundlearning.h \
+    fuzzychoquetintegral.h \
+    fuzzysugenointegral.h \
+    gaussianmodelmixutre.h \
     mainwindow.h \
-    myvideocapture.h
+    myvideocapture.h \
+    staticframedifference.h
 
 FORMS += \
     mainwindow.ui
